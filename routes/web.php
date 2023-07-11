@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EventController;
 
 
 // Home
@@ -31,4 +32,4 @@ Auth::routes();
 Route::resource('users', UserController::class);
 
 // Events
-Route::get('/events', [UserController::class, 'getEvents']);
+Route::get('/get-events', [EventController::class, 'getEvents']);
