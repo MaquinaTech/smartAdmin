@@ -15,7 +15,7 @@
 
     <section class="content">
         <div class="container-fluid">
-            <!-- Content here -->
+            <div id='calendar'></div>
         </div>
     </section>
 @endsection
