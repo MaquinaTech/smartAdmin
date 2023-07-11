@@ -7,6 +7,8 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap -->
+    
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
     <script>
 
@@ -22,7 +24,7 @@
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             initialView: 'dayGridMonth',
-            events: '/events',
+            events: 'get-events',
             /*dateClick: function(info) {
                 alert('Date: ' + info.dateStr);
             },*/
