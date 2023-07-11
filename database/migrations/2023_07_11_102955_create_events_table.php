@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('title'); 
             $table->string('color');
             $table->string('border_color');
+            $table->date('event_start');
+            $table->date('event_end');  
             $table->timestamps();
         });
     }
