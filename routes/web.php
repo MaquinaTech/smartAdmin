@@ -14,18 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\UserController;
 
-// Welcome
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// Auth
-Auth::routes();
 
 // Home
+Route::get('/', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
 
+// Auth
+Auth::routes();
+
 // Resources
 Route::resource('users', UserController::class);
+
+// Events
+Route::get('/events', [UserController::class, 'getEvents']);

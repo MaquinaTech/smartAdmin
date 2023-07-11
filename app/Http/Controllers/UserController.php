@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -15,6 +17,19 @@ class UserController extends Controller
     public function index()
     {
         //
+    }
+
+    /**
+     * Get all events.
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function getEvents()
+    {
+        
+        $events = Event::all();
+        Log::info($events);
+        return response()->json($events);
     }
 
     /**

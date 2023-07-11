@@ -13,8 +13,19 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          events: '/events'
+            initialView: 'dayGridMonth',
+            locale: 'es',
+            selectable: true,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            initialView: 'dayGridMonth',
+            events: '/events',
+            /*dateClick: function(info) {
+                alert('Date: ' + info.dateStr);
+            },*/
         });
         calendar.render();
       });
