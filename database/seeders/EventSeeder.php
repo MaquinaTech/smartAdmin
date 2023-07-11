@@ -21,17 +21,17 @@ class EventSeeder extends Seeder
             'title' => 'Vacaciones de verano',
             'color' => '#7aeb34',
             'border_color' => '#343deb',
-            'start' => '2021-07-11 16:56:44',
+            'start' => '2023-07-11 16:56:44',
             'end' => '2023-08-11 16:00:00',
         ]);
 
         Event::create([
             'name' => 'Cumpleaños',
             'title' => 'Cumpleaños tio Tom',
-            'color' => '#ececec',
+            'color' => 'blue',
             'border_color' => '#FFFFFF',
-            'start' => '2021-07-21 16:56:44',
-            'end' => '2023-08-25 16:00:00',
+            'start' => '2023-07-21 14:56:44',
+            'end' => '2023-07-21 16:00:00',
         ]);
 
     }
