@@ -55,7 +55,11 @@ class UserController extends Controller
     {
         // Validar los datos del formulario
         Log::info('UserController@store');
-
+        $validate = $this->validate($request, [
+            'name' => ['required','string'],
+            'email' => ['required','string'],
+            'is_active' => ['nullable','boolean'],
+        ]);
         Log::info("Datos validados");
 
         if($request->password != $request->password2){
@@ -102,7 +106,7 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User  $user
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -111,6 +115,9 @@ class UserController extends Controller
             'name' => ['required','string'],
             'email' => ['required','string'],
         ]);
+
+        Log::info('UserController@update');
+        
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -127,7 +134,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id  Id user
+     * @param  int  $id 
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

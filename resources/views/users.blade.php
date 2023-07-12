@@ -67,9 +67,9 @@
                                         <div class="form-group">
                                             <label for="editUserIsActive">¿Activo?</label>
                                             @if($user->is_active)
-                                            <input type="checkbox" class="form-control" id="editUserIsActive" name="is_active" placeholder="is_active" checked required>
+                                            <input type="checkbox" class="form-control" id="editUserIsActive" name="is_active" placeholder="is_active" checked>
                                             @else
-                                            <input type="checkbox" class="form-control" id="editUserIsActive" name="is_active" placeholder="is_active" required>
+                                            <input type="checkbox" class="form-control" id="editUserIsActive" name="is_active" placeholder="is_active">
                                             @endif
                                         </div>
                                         <button type="submit" class="btn btn-primary">Guardar</button>
