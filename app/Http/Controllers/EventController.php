@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EventType;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class EventController extends Controller
@@ -26,8 +28,21 @@ class EventController extends Controller
      */
     public function index()
     {
+        // Events
         $events = Event::all();
-        return view('events', compact('events'));
+
+        // Add color to each event
+        foreach ($events as $event) {
+            $event->color = $event->eventType->color;
+            $event->start = Carbon::parse($event->start)->format('Y-m-d H:i:s');
+            $event->end = Carbon::parse($event->end)->format('Y-m-d H:i:s');
+        }
+
+        // Event types
+        $event_types = EventType::all();
+
+        // Return the view
+        return view('events', compact(['events', 'event_types']));
     }
 
     /**
@@ -42,10 +57,14 @@ class EventController extends Controller
         // Agregar tipo de evento a cada evento
         foreach ($events as $event) {
             $event->extendedProps = [
-                'type' => 'reunión'
+                'type' => $event->eventType->name,
             ];
-        }
+            // Add color to each event
+            $event->color = $event->eventType->color;
+            $event->start = Carbon::parse($event->start)->format('Y-m-d\TH:i');
+            $event->end = Carbon::parse($event->end)->format('Y-m-d\TH:i');
 
+        }
         // Retornar los eventos en formato JSON
         return response()->json($events);
     }
@@ -73,9 +92,8 @@ class EventController extends Controller
         Log::info('EventController@store');
         $validate = $this->validate($request, [
             'name' => ['required','string'],
+            'event_type_id' => ['required','integer'],
             'title' => ['required','string'],
-            'color' => ['required','string'],
-            'text_color' => ['required','string'],
             'start' => ['required','date'],
             'end' => ['required','date'],
         ]);
@@ -85,8 +103,7 @@ class EventController extends Controller
         $event = new Event();
         $event->name = $request->name;
         $event->title = $request->title;
-        $event->color = $request->color;
-        $event->text_color = $request->text_color;
+        $event->event_type_id = $request->event_type_id;
         $event->start = $request->start;
         $event->end = $request->end;
         $event->save();
@@ -133,9 +150,8 @@ class EventController extends Controller
         // Validar los datos del formulario
         $validate = $this->validate($request, [
             'name' => ['required','string'],
+            'event_type_id' => ['required','integer'],
             'title' => ['required','string'],
-            'color' => ['required','string'],
-            'text_color' => ['required','string'],
             'start' => ['required','date'],
             'end' => ['required','date'],
         ]);
@@ -144,6 +160,9 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->name = $request->name;
         $event->title = $request->title;
+        $event->event_type_id = $request->event_type_id;
+        $event->start = $request->start;
+        $event->end = $request->end;
         $event->update();
 
         Log::info("Evento actualizado: " . $event->id . " " . $event->name);

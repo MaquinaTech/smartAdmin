@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('event_types', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('color')->unique();
             $table->timestamps();
         });
     }

@@ -17,14 +17,17 @@ class EventTypesSeeder extends Seeder
     {
         EventType::create([
             'name' => 'Importante',
+            'color' => '#7aeb34',
         ]);
 
         EventType::create([
             'name' => 'Normal',
+            'color' => '#3a37eb',
         ]);
 
         EventType::create([
             'name' => 'Nota',
+            'color' => '#ff8000',
         ]);
     }
 }

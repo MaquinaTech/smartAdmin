@@ -19,10 +19,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('title'); 
-            $table->string('color');
-            $table->string('text_color');
-            $table->date('start');
-            $table->date('end');  
+            $table->dateTime('start');
+            $table->dateTime('end');  
             $table->foreignId('event_type_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

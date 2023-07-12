@@ -27,8 +27,11 @@ class EventTypeController extends Controller
      */
     public function index()
     {
-        $event_types = Event::all();
-        return view('event_types', compact('event_types'));
+        // Event types
+        $event_types = EventType::all();
+
+        // Return the view
+        return view('event-types', compact('event_types'));
     }
 
     /**
@@ -53,15 +56,17 @@ class EventTypeController extends Controller
         Log::info('EventTypeController@store');
         $validate = $this->validate($request, [
             'name' => ['required','string'],
+            'color' => ['required','string'],
         ]);
         Log::info("Datos validados");
 
         // Crear el nuevo tipo de evento
         $event_type = new EventType();
         $event_type->name = $request->name;
+        $event_type->color = $request->color;
         $event_type->save();
 
-        Log::info("Tipo de evento creado");
+        Log::info("Tipo de evento creado: " . $event_type->id . " " . $event_type->name);
 
         // Retornar una respuesta de éxito
         return back()->with('exito', 'El tipo de evento ha sido creado');
@@ -103,14 +108,16 @@ class EventTypeController extends Controller
         // Validar los datos del formulario
         $validate = $this->validate($request, [
             'name' => ['required','string'],
+            'color' => ['required','string'],
         ]);
 
         // Actualizar el evento
         $event_type = EventType::find($id);
         $event_type->name = $request->name;
+        $event_type->color = $request->color;
         $event_type->update();
 
-        Log::info("Evento actualizado: " . $event->id . " " . $event->name);
+        Log::info("Evento actualizado: " . $event_type->id . " " . $event_type->name);
 
         // Retornar una respuesta de éxito
         return back()->with('exito', 'El evento ha sido actualizado');
@@ -125,7 +132,7 @@ class EventTypeController extends Controller
     public function destroy($id)
     {
         // Eliminar el evento
-        $event_type = Event::find($id);
+        $event_type = EventType::find($id);
         Log::info("EventTypeController@destroy");
         Log::info("Tipo de evento eliminado: " . $event_type->id . " " . $event_type->name);
         $event_type->delete();
