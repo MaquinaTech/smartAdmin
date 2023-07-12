@@ -20,7 +20,7 @@ class EventSeeder extends Seeder
             'name' => 'Vacaciones',
             'title' => 'Vacaciones de verano',
             'color' => '#7aeb34',
-            'border_color' => '#343deb',
+            'text_color' => '#343deb',
             'start' => '2023-07-11 16:56:44',
             'end' => '2023-08-11 16:00:00',
         ]);
@@ -29,7 +29,7 @@ class EventSeeder extends Seeder
             'name' => 'Cumpleaños',
             'title' => 'Cumpleaños tio Tom',
             'color' => 'blue',
-            'border_color' => '#FFFFFF',
+            'text_color' => '#FFFFFF',
             'start' => '2023-07-21 14:56:44',
             'end' => '2023-07-21 16:00:00',
         ]);

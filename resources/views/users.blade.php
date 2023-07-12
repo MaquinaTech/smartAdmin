@@ -2,8 +2,7 @@
 
 @section('title', 'Home')
 
-@section('content')
-
+@section('content-header')
     <div class="row mb-2">
             <div class="col-6">
                 <h2>Usuarios</h2>
@@ -12,6 +11,9 @@
                 <button class="btn btn-success btn-add-user" data-toggle="modal" data-target="#addUserModal">Añadir Usuario</button>
             </div>
     </div>
+@endsection
+
+@section('content')
     <!-- Tabla con usuarios -->
     <div class="table-responsive">
         <table class="table table-striped">

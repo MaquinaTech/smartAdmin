@@ -26,7 +26,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+        return view('events', compact('events'));
     }
 
     /**
@@ -59,7 +60,31 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validar los datos del formulario
+        Log::info('EventController@store');
+        $validate = $this->validate($request, [
+            'name' => ['required','string'],
+            'title' => ['required','string'],
+            'color' => ['required','string'],
+            'text_color' => ['required','string'],
+            'start' => ['required','date'],
+            'end' => ['required','date'],
+        ]);
+        Log::info("Datos validados");
+        // Crear el nuevo usuario
+        $event = new Event();
+        $event->name = $request->name;
+        $event->title = $request->title;
+        $event->color = $request->color;
+        $event->text_color = $request->text_color;
+        $event->start = $request->start;
+        $event->end = $request->end;
+        $event->save();
+
+        Log::info("Eventoo creado");
+
+        // Retornar una respuesta de éxito
+        return back()->with('exito', 'El evento ha sido creado');
     }
 
     /**
@@ -93,7 +118,23 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validate = $this->validate($request, [
+            'name' => ['required','string'],
+            'title' => ['required','string'],
+            'color' => ['required','string'],
+            'text_color' => ['required','string'],
+            'start' => ['required','date'],
+            'end' => ['required','date'],
+        ]);
+        $event = Event::find($id);
+        $event->name = $request->name;
+        $event->title = $request->title;
+        $event->update();
+
+        Log::info("EventController@update");
+        Log::info("Evento actualizado: " . $event->id . " " . $event->name);
+
+        return back()->with('exito', 'El evento ha sido actualizado');
     }
 
     /**
@@ -104,6 +145,12 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        Log::info("EventController@destroy");
+        Log::info("Evento eliminado: " . $event->id . " " . $event->name);
+
+        $event->delete();
+        
+        return back()->with('exito', 'El evento ha sido eliminado');
     }
 }

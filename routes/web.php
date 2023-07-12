@@ -30,6 +30,7 @@ Auth::routes();
 
 // Resources
 Route::resource('users', UserController::class);
+Route::resource('events', EventController::class);
 
 
 
