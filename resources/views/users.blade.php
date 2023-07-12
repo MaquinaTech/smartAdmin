@@ -122,67 +122,15 @@
         </div>
     </div>
 
-    
-
-
-
-    <!-- Modal para borrar usuario -->
-    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteUserModalLabel">Borrar Usuario</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>¿Estás seguro de que deseas borrar este usuario?</p>
-                    <!-- Formulario para borrar usuario -->
-                        <button type="button" id="btn-confirm" name="btn-confirm" class="btn btn-danger btn-confirm">Confirmar</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
 @endsection
 
 @section('scripts')
 <script>
     $(document).ready(function() {
-        console.log("hola");
         // Acción de añadir usuario
         $('.btn-add-user').on('click', function() {
             $('#addUserModal').modal('show');
         });
-
-        // Acción de editar usuario
-        $(document).on('click', '.btn-edit-user', function() {
-            var userId = $(this).data('user-id'); // Obtener el ID del usuario
-            getUserById(userId); // Obtener los datos del usuario mediante una solicitud AJAX o acceder a los datos en el backend
-        });
-
-        // Función para obtener los datos del usuario por su ID
-        function getUserById(userId) {
-            console.log("hola");
-            $.ajax({
-                url: '/users/' + userId, // Ruta para obtener los datos del usuario por su ID
-                type: 'GET',
-                success: function(response) {
-                    // Llenar el formulario con los valores del usuario
-                    $('#editUserName').val(response.name);
-                    $('#editUserEmail').val(response.email);
-                    $('#editUserModal').modal('show');
-                },
-                error: function(xhr, status, error) {
-                    console.log(xhr.responseText);
-                }
-            });
-        }
     });
 </script>
 @endsection
