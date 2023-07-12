@@ -35,14 +35,15 @@
                         <label for="editEventTitle">Título</label>
                         <input type="string" class="form-control" id="title" name="title" placeholder="event" required>
                     </div>
-                    
-                    <div class="form-group input-mini">
-                        <label for="addEventColor">Fondo</label>
-                        <input type="color" class="form-control" id="color" name="color" placeholder="color" required>
-                    </div>
-                    <div class="form-group input-mini">
-                        <label for="addEventTextColor">Texto</label>
-                        <input type="color" class="form-control" id="text_color" name="text_color" placeholder="text_color"required>
+                    <div class="flex around">
+                        <div class="form-group input-mini">
+                            <label for="addEventColor">Fondo</label>
+                            <input type="color" class="form-control" id="color" name="color" placeholder="color" required>
+                        </div>
+                        <div class="form-group input-mini">
+                            <label for="addEventTextColor">Texto</label>
+                            <input type="color" class="form-control" id="text_color" name="text_color" placeholder="text_color"required>
+                        </div>
                     </div>
                     <div class="flex between mb-4">
                         <div class="form-group">
