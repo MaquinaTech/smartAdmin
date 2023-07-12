@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class EventType extends Model
 {
     use HasFactory;
 
@@ -15,15 +15,14 @@ class Event extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title', 'name', 'color', 'text_color', 'event_start', 'event_end', 'event_type_id'
+        'name'
     ];
 
     /**
-     * Get the event type that owns the event.
+     * Get the events for the event type.
      */
-    public function eventType()
+    public function events()
     {
-        return $this->belongsTo(EventType::class);
+        return $this->hasMany(Event::class);
     }
-
 }

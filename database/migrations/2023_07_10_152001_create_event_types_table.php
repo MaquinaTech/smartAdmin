@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Artisan;
 
 return new class extends Migration
 {
@@ -14,16 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('event_types', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('title'); 
-            $table->string('color');
-            $table->string('text_color');
-            $table->date('start');
-            $table->date('end');  
-            $table->foreignId('event_type_id')->constrained()->onDelete('cascade');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
@@ -35,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('event_types');
     }
 };
