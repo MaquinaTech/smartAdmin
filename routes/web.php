@@ -31,5 +31,7 @@ Auth::routes();
 // Resources
 Route::resource('users', UserController::class);
 
+
+
 // Events
 Route::get('/get-events', [EventController::class, 'getEvents']);

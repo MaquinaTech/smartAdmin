@@ -1,21 +1,34 @@
 @extends('layouts.app')
 
 @section('title', 'Home')
-
+<head>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'es',
+                
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                initialView: 'dayGridMonth',
+                events: 'get-events',
+            });
+            calendar.render();
+        });
+    </script>
+</head>
+@section('content-header')
+    <h1>Calendario de eventos</h1>
+@endsection
 @section('content')
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Home Page</h1>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <section class="content">
-        <div class="container-fluid">
-            <div id='calendar'></div>
+        <div class="row">
+            <div id='calendar' class='calendar'></div>
         </div>
-    </section>
+    
+    
 @endsection
