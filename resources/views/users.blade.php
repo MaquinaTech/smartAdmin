@@ -15,7 +15,7 @@
 
 @section('content')
     <!-- Tabla con usuarios -->
-    <div class="table-responsive">
+    <div class="table-responsive shadow p-3 mb-5 bg-light-grey">
         <table class="table table-striped">
             <thead>
                 <tr>

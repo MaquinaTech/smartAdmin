@@ -12,7 +12,7 @@
 
 @section('content')
     <div class="row">
-        <div id='calendar' class='calendar'></div>
+        <div id='calendar' class='calendar shadow p-3 mb-5 bg-light-grey'></div>
     </div>
 
     <!-- Modal -->
@@ -29,31 +29,15 @@
                     <!-- Coloca aquí el formulario con los datos del evento -->
                     <div class="form-group">
                         <label for="editEventName">Nombre</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" disabled>
                     </div>
                     <div class="form-group">
                         <label for="editEventTitle">Título</label>
-                        <input type="string" class="form-control" id="title" name="title" placeholder="event" required>
+                        <input type="string" class="form-control" id="title" name="title" placeholder="event" disabled>
                     </div>
-                    <div class="flex around">
-                        <div class="form-group input-mini">
-                            <label for="addEventColor">Fondo</label>
-                            <input type="color" class="form-control" id="color" name="color" placeholder="color" required>
-                        </div>
-                        <div class="form-group input-mini">
-                            <label for="addEventTextColor">Texto</label>
-                            <input type="color" class="form-control" id="text_color" name="text_color" placeholder="text_color"required>
-                        </div>
-                    </div>
-                    <div class="flex between mb-4">
-                        <div class="form-group">
-                            <label for="editEventStart">Fecha de inicio</label>
-                            <input type="date" class="form-control" id="start" name="start" placeholder="start" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="editEventEnd">Fecha de fin</label>
-                            <input type="date" class="form-control" id="end" name="end" placeholder="end" required>
-                        </div>
+                    <div class="form-group input-mini">
+                        <label for="addEventColor">Fondo</label>
+                        <input type="color" class="form-control" id="color" name="color" placeholder="color" disabled>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -74,14 +58,13 @@
                     
                     // Abre el modal al hacer clic en un evento
                     $('#eventModal').modal('show');
-
+                    console.log(eventObj);
                     // Actualiza los campos del formulario con los datos del evento
                     document.getElementById('name').value = eventObj.extendedProps.name;
                     document.getElementById('title').value = eventObj.title;
                     document.getElementById('color').value = eventObj.backgroundColor;
-                    document.getElementById('text_color').value = eventObj.textColor;
-                    document.getElementById('start').value = eventObj.startStr;
-                    document.getElementById('end').value = eventObj.endStr;
+                    document.getElementById('start').value = eventObj.extendedProps.start;
+                    document.getElementById('end').value = eventObj.extendedProps.end;
 
                     info.jsEvent.preventDefault(); // previene que el navegador siga el enlace o realice la acción predeterminada
                 },
