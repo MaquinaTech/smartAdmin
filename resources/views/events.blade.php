@@ -7,7 +7,7 @@
         <div class="col-6">
             <h2>Eventos</h2>
         </div>
-        <div class="col-6 text-end mt-4">
+        <div class="col-6 text-right mt-4">
             <button class="btn btn-success btn-add-event" data-toggle="modal" data-target="#addEventModal">Añadir Evento</button>
         </div>
     </div>

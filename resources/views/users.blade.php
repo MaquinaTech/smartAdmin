@@ -4,12 +4,12 @@
 
 @section('content-header')
     <div class="row mb-2">
-            <div class="col-6">
-                <h2>Usuarios</h2>
-            </div>
-            <div class="col-6 text-right mt-4">
-                <button class="btn btn-success btn-add-user" data-toggle="modal" data-target="#addUserModal">Añadir Usuario</button>
-            </div>
+        <div class="col-6">
+            <h2>Usuarios</h2>
+        </div>
+        <div class="col-6 text-right mt-4">
+            <button class="btn btn-success btn-add-user" data-toggle="modal" data-target="#addUserModal">Añadir Usuario</button>
+        </div>
     </div>
 @endsection
 

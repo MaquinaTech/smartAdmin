@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content-header')
-    <div class="row mb-2 mt-5">
+    <div class="row mb-2">
             <div class="col-6">
                 <h2>Tipos de Evento</h2>
             </div>
