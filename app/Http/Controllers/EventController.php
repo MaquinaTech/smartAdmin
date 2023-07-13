@@ -28,21 +28,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        // Events
-        $events = Event::all();
-
-        // Add color to each event
-        foreach ($events as $event) {
-            $event->color = $event->eventType->color;
-            $event->start = Carbon::parse($event->start)->format('Y-m-d H:i:s');
-            $event->end = Carbon::parse($event->end)->format('Y-m-d H:i:s');
-        }
-
-        // Event types
         $event_types = EventType::all();
-
-        // Return the view
-        return view('events', compact(['events', 'event_types']));
+        return view('home', compact('event_types'));
     }
 
     /**
