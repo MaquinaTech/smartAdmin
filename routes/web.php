@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTypeController;
+use App\Http\Controllers\HomeController;
 
 
 // Home
+/*
 Route::get('/', function() {
     return view('home');
 })->name('home')->middleware('auth');
@@ -25,6 +27,9 @@ Route::get('/', function() {
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+*/
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
 // Auth
 Auth::routes();
@@ -37,3 +42,5 @@ Route::resource('event-types', EventTypeController::class);
 
 // Events
 Route::get('/get-events', [EventController::class, 'getEvents']);
+Route::post('/update-events', [EventController::class, 'update'])->name('update-events');
+Route::delete('/delete-events', [EventController::class, 'destroy'])->name('delete-events');

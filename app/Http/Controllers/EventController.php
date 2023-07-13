@@ -61,8 +61,8 @@ class EventController extends Controller
             ];
             // Add color to each event
             $event->color = $event->eventType->color;
-            $event->start = Carbon::parse($event->start)->format('Y-m-d\TH:i');
-            $event->end = Carbon::parse($event->end)->format('Y-m-d\TH:i');
+            $event->start = Carbon::parse($event->start)->format('Y-m-d H:i:s');
+            $event->end = Carbon::parse($event->end)->format('Y-m-d H:i:s');
 
         }
         // Retornar los eventos en formato JSON
@@ -140,15 +140,15 @@ class EventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         Log::info("EventController@update");
 
         // Validar los datos del formulario
         $validate = $this->validate($request, [
+            'id' => ['required','integer'],
             'name' => ['required','string'],
             'event_type_id' => ['required','integer'],
             'title' => ['required','string'],
@@ -157,7 +157,7 @@ class EventController extends Controller
         ]);
 
         // Actualizar el evento
-        $event = Event::find($id);
+        $event = Event::find($request->id);
         $event->name = $request->name;
         $event->title = $request->title;
         $event->event_type_id = $request->event_type_id;
@@ -177,9 +177,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        $event = Event::find($id);
+        $event = Event::find($request->id);
         Log::info("EventController@destroy");
         Log::info("Evento eliminado: " . $event->id . " " . $event->name);
 
