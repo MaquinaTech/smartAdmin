@@ -8,7 +8,7 @@
             <h2>Calendario</h2>
         </div>
         <div class="col-6 text-right mt-4">
-            <button class="btn btn-success btn-add-event" data-toggle="modal" data-target="#addEventModal">Añadir Evento</button>
+            <button class="btn btn-outline-success btn-add-event" data-toggle="modal" data-target="#addEventModal">Añadir Evento</button>
         </div>
     </div>
 @endsection
@@ -57,7 +57,7 @@
                                 <input type="datetime-local" class="form-control" id="addEventEnd" name="end" placeholder="Fin" required>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Añadir</button>
+                        <button type="submit" class="btn btn-outline-primary">Añadir</button>
                     </form>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                                 <input type="datetime-local" class="form-control" id="end" name="end" placeholder="Fin" required>
                             </div>
                         </div>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
+                            <button type="submit" class="btn btn-outline-primary">Guardar</button>
                     </form>
                 </div>
                 <div class="modal-footer">

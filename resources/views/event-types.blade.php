@@ -8,7 +8,7 @@
             <h2>Tipos de Evento</h2>
         </div>
         <div class="col-6 text-right mt-4">
-            <button class="btn btn-success btn-add-event-type" data-toggle="modal" data-target="#addEventTypeModal">Añadir Tipo de Evento</button>
+            <button class="btn btn-outline-success btn-add-event-type" data-toggle="modal" data-target="#addEventTypeModal">Añadir Tipo de Evento</button>
         </div>
     </div>
 @endsection
@@ -65,7 +65,7 @@
                                             <input type="color" class="form-control" id="addEventTypeColor" name="color" placeholder="color" value="{{$type->color}}" required>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button type="submit" class="btn btn-outline-primary">Guardar</button>
                                     </form>
                                 </div>
                             </div>
@@ -100,7 +100,7 @@
                             <label for="addEventTypeColor">Color</label>
                             <input type="color" class="form-control" id="addEventTypeColor" name="color" placeholder="color" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Añadir</button>
+                        <button type="submit" class="btn btn-outline-primary">Añadir</button>
                     </form>
                 </div>
             </div>

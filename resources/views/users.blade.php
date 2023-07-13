@@ -8,7 +8,7 @@
             <h2>Usuarios</h2>
         </div>
         <div class="col-6 text-right mt-4">
-            <button class="btn btn-success btn-add-user" data-toggle="modal" data-target="#addUserModal">Añadir Usuario</button>
+            <button class="btn btn-outline-success btn-add-user" data-toggle="modal" data-target="#addUserModal">Añadir Usuario</button>
         </div>
     </div>
 @endsection
@@ -74,7 +74,7 @@
                                             <input type="checkbox" class="form-control" id="editUserIsActive" name="is_active" placeholder="is_active">
                                             @endif
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button type="submit" class="btn btn-outline-primary">Guardar</button>
                                     </form>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                             <label for="addUserPassword2">Repita Contraseña</label>
                             <input type="password" class="form-control" id="addUserPassword2" name="password2" placeholder="Repita contraseña" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Añadir</button>
+                        <button type="submit" class="btn btn-outline-primary">Añadir</button>
                     </form>
                 </div>
             </div>
