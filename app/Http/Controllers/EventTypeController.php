@@ -138,6 +138,6 @@ class EventTypeController extends Controller
         $event_type->delete();
         
         // Retornar una respuesta de éxito
-        return back()->with('exito', 'El tipo de evento ha sido eliminado');
+        return back()->with('exito', 'El tipo de evento y todos sus eventos han sido eliminados');
     }
 }
