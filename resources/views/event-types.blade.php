@@ -4,12 +4,12 @@
 
 @section('content-header')
     <div class="row mb-2">
-            <div class="col-6">
-                <h2>Tipos de Evento</h2>
-            </div>
-            <div class="col-6 text-right mt-4">
-                <button class="btn btn-success btn-add-event-type" data-toggle="modal" data-target="#addEventTypeModal">Añadir Tipo de Evento</button>
-            </div>
+        <div class="col-6">
+            <h2>Tipos de Evento</h2>
+        </div>
+        <div class="col-6 text-right mt-4">
+            <button class="btn btn-success btn-add-event-type" data-toggle="modal" data-target="#addEventTypeModal">Añadir Tipo de Evento</button>
+        </div>
     </div>
 @endsection
 

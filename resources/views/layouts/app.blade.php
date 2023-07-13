@@ -6,16 +6,21 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- AminLTE -->
     <link href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}" rel="stylesheet">
+
+    <!-- Styles -->
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    
+    <!-- FullCalendar -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script> 
     
 
+    <!-- Notification Styles -->
     <style>
         .fade-out {
             animation: fadeOut 1s ease-in-out;
@@ -40,6 +45,7 @@
         <!-- Sidebar -->
         @include('layouts.partials.sidebar')
 
+        <!-- Notification -->
         @if(Session::has('exito'))
             <div id="alerta" class="alert alert-success" style="position: absolute; margin-top:200px; top: 0; right: 0;">
                 {!! Session::get('exito') !!}

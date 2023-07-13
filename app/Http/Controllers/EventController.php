@@ -59,7 +59,7 @@ class EventController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -161,11 +161,14 @@ class EventController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)
     {
+        // Validar el id del formulario
+        $validate = $this->validate($request, [
+            'id' => ['required','integer'],
+        ]);
         $event = Event::find($request->id);
         Log::info("EventController@destroy");
         Log::info("Evento eliminado: " . $event->id . " " . $event->name);
